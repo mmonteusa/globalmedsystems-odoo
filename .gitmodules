@@ -1,0 +1,3 @@
+[submodule "sign_employee_role_filter"]
+    path = sign_employee_role_filter
+    url = git@github.com:mmonteusa/globalmedsystems-odoo.git
