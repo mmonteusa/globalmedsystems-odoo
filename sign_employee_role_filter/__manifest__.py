@@ -1,6 +1,6 @@
 {
     'name': 'Sign Employee Role Filter',
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.1.0',
     'category': 'Sign',
     'summary': 'Restricts Sign Employee role signer search to internal users only',
     'description': """
