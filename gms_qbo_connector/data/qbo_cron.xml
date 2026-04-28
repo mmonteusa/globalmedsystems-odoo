@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_qbo_sync" model="ir.cron">
+        <field name="name">QBO: Scheduled Bidirectional Sync</field>
+        <field name="model_id" ref="model_qbo_scheduler"/>
+        <field name="state">code</field>
+        <field name="code">model.run_scheduled_sync()</field>
+        <field name="interval_number">6</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="active">False</field>
+        <field name="doall">False</field>
+    </record>
+</odoo>

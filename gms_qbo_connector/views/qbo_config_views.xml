@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Config Form View -->
+    <record id="view_qbo_config_form" model="ir.ui.view">
+        <field name="name">qbo.config.form</field>
+        <field name="model">qbo.config</field>
+        <field name="arch" type="xml">
+            <form string="QuickBooks Online Configuration">
+                <header>
+                    <button name="action_authorize" type="object" string="Authorize with Intuit"
+                            class="btn-primary" attrs="{'invisible': [('is_connected', '=', True)]}"/>
+                    <button name="action_test_connection" type="object" string="Test Connection"
+                            class="btn-secondary" attrs="{'invisible': [('is_connected', '=', False)]}"/>
+                    <button name="action_refresh_token" type="object" string="Refresh Token"
+                            class="btn-secondary" attrs="{'invisible': [('is_connected', '=', False)]}"/>
+                    <button name="action_disconnect" type="object" string="Disconnect"
+                            class="btn-danger" attrs="{'invisible': [('is_connected', '=', False)]}"/>
+                    <field name="connection_status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Connection">
+                            <field name="company_id"/>
+                            <field name="environment"/>
+                            <field name="realm_id"/>
+                            <field name="redirect_uri"/>
+                        </group>
+                        <group string="OAuth Credentials">
+                            <field name="client_id" password="True"/>
+                            <field name="client_secret" password="True"/>
+                            <field name="is_connected" invisible="1"/>
+                            <field name="token_expiry"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sync Settings">
+                            <group>
+                                <group string="What to Sync">
+                                    <field name="sync_direction"/>
+                                    <field name="sync_invoices"/>
+                                    <field name="sync_bills"/>
+                                    <field name="sync_payments"/>
+                                    <field name="sync_journal_entries"/>
+                                    <field name="sync_customers"/>
+                                    <field name="sync_vendors"/>
+                                    <field name="sync_products"/>
+                                </group>
+                                <group string="Auto Sync">
+                                    <field name="auto_sync"/>
+                                    <field name="sync_interval" attrs="{'invisible': [('auto_sync', '=', False)]}"/>
+                                    <field name="last_sync"/>
+                                    <field name="last_sync_status"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Account Mapping">
+                            <field name="qbo_account_mapping_ids">
+                                <tree editable="bottom">
+                                    <field name="odoo_account_id"/>
+                                    <field name="qbo_account_id"/>
+                                    <field name="qbo_account_name"/>
+                                    <field name="qbo_account_type"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Tax Mapping">
+                            <field name="qbo_tax_mapping_ids">
+                                <tree editable="bottom">
+                                    <field name="odoo_tax_id"/>
+                                    <field name="qbo_tax_code_id"/>
+                                    <field name="qbo_tax_code_name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Config List View -->
+    <record id="view_qbo_config_list" model="ir.ui.view">
+        <field name="name">qbo.config.list</field>
+        <field name="model">qbo.config</field>
+        <field name="arch" type="xml">
+            <tree string="QBO Connections">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="environment"/>
+                <field name="realm_id"/>
+                <field name="connection_status"/>
+                <field name="last_sync"/>
+                <field name="last_sync_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Config Action -->
+    <record id="action_qbo_config" model="ir.actions.act_window">
+        <field name="name">QBO Configuration</field>
+        <field name="res_model">qbo.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

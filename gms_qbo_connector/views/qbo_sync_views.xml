@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Sync Wizard -->
+    <record id="view_qbo_sync_wizard_form" model="ir.ui.view">
+        <field name="name">qbo.sync.wizard.form</field>
+        <field name="model">qbo.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="QBO Manual Sync">
+                <group>
+                    <field name="config_id"/>
+                    <field name="sync_what"/>
+                    <field name="direction"/>
+                </group>
+                <group attrs="{'invisible': [('result_summary', '=', False)]}">
+                    <field name="result_summary" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_sync" type="object" string="Run Sync"
+                            class="btn-primary"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Sync Wizard Action -->
+    <record id="action_qbo_sync_wizard" model="ir.actions.act_window">
+        <field name="name">Sync with QuickBooks</field>
+        <field name="res_model">qbo.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

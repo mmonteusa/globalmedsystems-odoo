@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qbo_config_manager,qbo.config manager,model_qbo_config,account.group_account_manager,1,1,1,1
+access_qbo_config_user,qbo.config user,model_qbo_config,account.group_account_user,1,0,0,0
+access_qbo_sync_log_manager,qbo.sync.log manager,model_qbo_sync_log,account.group_account_manager,1,1,1,1
+access_qbo_sync_log_user,qbo.sync.log user,model_qbo_sync_log,account.group_account_user,1,0,0,0
+access_qbo_account_mapping,qbo.account.mapping,model_qbo_account_mapping,account.group_account_manager,1,1,1,1
+access_qbo_tax_mapping,qbo.tax.mapping,model_qbo_tax_mapping,account.group_account_manager,1,1,1,1
+access_qbo_partner_sync,qbo.partner.sync,model_qbo_partner_sync,account.group_account_manager,1,1,1,1
+access_qbo_product_sync,qbo.product.sync,model_qbo_product_sync,account.group_account_manager,1,1,1,1
+access_qbo_invoice_sync,qbo.invoice.sync,model_qbo_invoice_sync,account.group_account_manager,1,1,1,1
+access_qbo_journal_sync,qbo.journal.sync,model_qbo_journal_sync,account.group_account_manager,1,1,1,1
+access_qbo_payment_sync,qbo.payment.sync,model_qbo_payment_sync,account.group_account_manager,1,1,1,1
+access_qbo_scheduler,qbo.scheduler,model_qbo_scheduler,account.group_account_manager,1,1,1,1
+access_qbo_sync_wizard,qbo.sync.wizard,model_qbo_sync_wizard,account.group_account_user,1,1,1,1

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top-level menu -->
+    <menuitem id="menu_qbo_root"
+              name="QuickBooks"
+              sequence="100"
+              web_icon="gms_qbo_connector,static/description/icon.png"/>
+
+    <!-- Dashboard / Sync -->
+    <menuitem id="menu_qbo_sync"
+              name="Sync Now"
+              parent="menu_qbo_root"
+              action="action_qbo_sync_wizard"
+              sequence="10"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_qbo_config"
+              name="Configuration"
+              parent="menu_qbo_root"
+              action="action_qbo_config"
+              sequence="20"/>
+
+    <!-- Sync Log -->
+    <menuitem id="menu_qbo_log"
+              name="Sync Log"
+              parent="menu_qbo_root"
+              action="action_qbo_sync_log"
+              sequence="30"/>
+
+</odoo>
